@@ -3,8 +3,8 @@ import { riskSignals } from "@/data/mockData";
 import { Brain, User, Truck, Eye, AlertTriangle, Info, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const severityColor = { high: "text-critical", medium: "text-warning", low: "text-success" };
-const severityBg = { high: "bg-critical/10", medium: "bg-warning/10", low: "bg-success/10" };
+const severityColor: Record<string, string> = { high: "text-critical", medium: "text-warning", low: "text-success" };
+const severityBg: Record<string, string> = { high: "bg-critical/10", medium: "bg-warning/10", low: "bg-success/10" };
 
 function SignalPanel({ title, icon: Icon, signals }: { title: string; icon: React.ElementType; signals: { label: string; value: string; severity: string }[] }) {
   return (
