@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import { riskSignals } from "@/data/mockData";
-import { Brain, User, Truck, Eye, AlertTriangle, Info, CheckCircle2 } from "lucide-react";
+import { Brain, User, Truck, Eye, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const severityColor: Record<string, string> = { high: "text-critical", medium: "text-warning", low: "text-success" };
-const severityBg: Record<string, string> = { high: "bg-critical/10", medium: "bg-warning/10", low: "bg-success/10" };
 
 function SignalPanel({ title, icon: Icon, signals }: { title: string; icon: React.ElementType; signals: { label: string; value: string; severity: string }[] }) {
   return (
@@ -17,7 +16,9 @@ function SignalPanel({ title, icon: Icon, signals }: { title: string; icon: Reac
         {signals.map((s) => (
           <div key={s.label} className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className={cn("h-1.5 w-1.5 rounded-full", severityBg[s.severity])} style={{ backgroundColor: s.severity === "high" ? "hsl(0,72%,51%)" : s.severity === "medium" ? "hsl(38,92%,50%)" : "hsl(142,71%,45%)" }} />
+              <div className={cn("h-1.5 w-1.5 rounded-full",
+                s.severity === "high" ? "bg-critical" : s.severity === "medium" ? "bg-warning" : "bg-success"
+              )} />
               <span className="text-sm text-muted-foreground">{s.label}</span>
             </div>
             <span className={cn("text-sm font-medium", severityColor[s.severity])}>{s.value}</span>
@@ -69,14 +70,14 @@ export default function RiskReasoning() {
           <Brain className="h-4 w-4 text-primary" />
           <h3 className="text-sm font-medium text-foreground">AI Explanation</h3>
         </div>
-        <div className="bg-muted/30 rounded-lg p-4 border border-border/30">
-          <p className="text-sm text-foreground/90 leading-relaxed">
+        <div className="bg-muted/50 rounded-lg p-4 border border-border">
+          <p className="text-sm text-foreground/80 leading-relaxed">
             This case exhibits <span className="text-critical font-medium">strong indicators of return fraud</span>. The returned item weighs 240g less than the original shipment (680g vs 920g), suggesting key components are missing. Visual analysis confirms the absence of the chain strap and branded dust bag, with only 34% image similarity between the original and returned item.
           </p>
-          <p className="text-sm text-foreground/90 leading-relaxed mt-3">
+          <p className="text-sm text-foreground/80 leading-relaxed mt-3">
             The buyer's behavioral pattern raises additional concerns: a <span className="text-critical font-medium">42% return rate</span> (5× the marketplace average) with 5 high-value luxury returns in the past 6 months. The return was initiated just 2 days after delivery, shipped from a different city than the delivery address.
           </p>
-          <p className="text-sm text-foreground/90 leading-relaxed mt-3">
+          <p className="text-sm text-foreground/80 leading-relaxed mt-3">
             Combined with a 72% counterfeit probability score and 18% same-item likelihood, the evidence strongly suggests the buyer is returning a different, lower-value item. <span className="text-primary font-medium">Recommended action: Deny refund</span> and flag the buyer account for enhanced monitoring.
           </p>
         </div>

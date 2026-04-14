@@ -17,7 +17,7 @@ export function MetricCard({ title, value, change, changeType = "neutral", icon:
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.4 }}
-      className="glass-card p-6 hover:border-primary/30 transition-all duration-300 group"
+      className="glass-card p-6 hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
     >
       <div className="flex items-start justify-between">
         <div className="space-y-2">
@@ -29,7 +29,7 @@ export function MetricCard({ title, value, change, changeType = "neutral", icon:
             </p>
           )}
         </div>
-        <div className="rounded-lg bg-primary/10 p-2.5 group-hover:bg-primary/20 transition-colors">
+        <div className="rounded-lg bg-primary/10 p-2.5 group-hover:bg-primary/15 transition-colors">
           <Icon className="h-5 w-5 text-primary" />
         </div>
       </div>
