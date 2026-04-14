@@ -110,10 +110,10 @@ export const cases: Case[] = [
 ];
 
 export const disputesByType = [
-  { name: "Return Fraud", value: 38, fill: "hsl(42, 50%, 57%)" },
+  { name: "Return Fraud", value: 38, fill: "hsl(25, 95%, 53%)" },
   { name: "Authenticity", value: 24, fill: "hsl(217, 91%, 60%)" },
   { name: "Shipping", value: 15, fill: "hsl(142, 71%, 45%)" },
-  { name: "Chargeback", value: 13, fill: "hsl(0, 72%, 51%)" },
+  { name: "Chargeback", value: 13, fill: "hsl(0, 84%, 60%)" },
   { name: "Missing Item", value: 10, fill: "hsl(280, 65%, 60%)" },
 ];
 
@@ -121,7 +121,7 @@ export const riskDistribution = [
   { range: "0-25", count: 12, fill: "hsl(142, 71%, 45%)" },
   { range: "26-50", count: 18, fill: "hsl(217, 91%, 60%)" },
   { range: "51-75", count: 24, fill: "hsl(38, 92%, 50%)" },
-  { range: "76-100", count: 14, fill: "hsl(0, 72%, 51%)" },
+  { range: "76-100", count: 14, fill: "hsl(0, 84%, 60%)" },
 ];
 
 export const refundTrend = [

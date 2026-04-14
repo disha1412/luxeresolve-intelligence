@@ -14,8 +14,8 @@ const metrics = [
 ];
 
 const chartTooltipStyle = {
-  contentStyle: { background: "hsl(230, 12%, 8%)", border: "1px solid hsl(230, 10%, 16%)", borderRadius: "8px", fontSize: "12px" },
-  labelStyle: { color: "hsl(220, 15%, 85%)" },
+  contentStyle: { background: "hsl(0, 0%, 100%)", border: "1px solid hsl(220, 13%, 91%)", borderRadius: "8px", fontSize: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" },
+  labelStyle: { color: "hsl(222, 47%, 11%)" },
 };
 
 export default function Dashboard() {
@@ -60,8 +60,8 @@ export default function Dashboard() {
           <h3 className="text-sm font-medium text-muted-foreground mb-4">Risk Distribution</h3>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={riskDistribution}>
-              <XAxis dataKey="range" tick={{ fill: "hsl(220,10%,50%)", fontSize: 11 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill: "hsl(220,10%,50%)", fontSize: 11 }} axisLine={false} tickLine={false} />
+              <XAxis dataKey="range" tick={{ fill: "hsl(220,9%,46%)", fontSize: 11 }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fill: "hsl(220,9%,46%)", fontSize: 11 }} axisLine={false} tickLine={false} />
               <Tooltip {...chartTooltipStyle} />
               <Bar dataKey="count" radius={[4, 4, 0, 0]}>
                 {riskDistribution.map((entry, i) => <Cell key={i} fill={entry.fill} />)}
@@ -76,27 +76,27 @@ export default function Dashboard() {
             <AreaChart data={refundTrend}>
               <defs>
                 <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(42,50%,57%)" stopOpacity={0.3} />
-                  <stop offset="100%" stopColor="hsl(42,50%,57%)" stopOpacity={0} />
+                  <stop offset="0%" stopColor="hsl(25,95%,53%)" stopOpacity={0.2} />
+                  <stop offset="100%" stopColor="hsl(25,95%,53%)" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <XAxis dataKey="month" tick={{ fill: "hsl(220,10%,50%)", fontSize: 11 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill: "hsl(220,10%,50%)", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `$${v / 1000}k`} />
+              <XAxis dataKey="month" tick={{ fill: "hsl(220,9%,46%)", fontSize: 11 }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fill: "hsl(220,9%,46%)", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `$${v / 1000}k`} />
               <Tooltip {...chartTooltipStyle} />
-              <Area type="monotone" dataKey="amount" stroke="hsl(42,50%,57%)" fill="url(#goldGrad)" strokeWidth={2} />
+              <Area type="monotone" dataKey="amount" stroke="hsl(25,95%,53%)" fill="url(#goldGrad)" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
         </motion.div>
       </div>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="glass-card overflow-hidden">
-        <div className="p-5 border-b border-border/50">
+        <div className="p-5 border-b border-border">
           <h3 className="text-sm font-medium text-foreground">High-Risk Cases</h3>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-border/30">
+              <tr className="border-b border-border">
                 <th className="text-left text-xs font-medium text-muted-foreground px-5 py-3">Case</th>
                 <th className="text-left text-xs font-medium text-muted-foreground px-5 py-3">Item</th>
                 <th className="text-left text-xs font-medium text-muted-foreground px-5 py-3">Value</th>
@@ -110,7 +110,7 @@ export default function Dashboard() {
                 <tr
                   key={c.id}
                   onClick={() => navigate(`/cases/${c.id}`)}
-                  className="border-b border-border/20 hover:bg-muted/30 cursor-pointer transition-colors"
+                  className="border-b border-border/50 hover:bg-muted/50 cursor-pointer transition-colors"
                 >
                   <td className="px-5 py-3.5 text-sm font-medium text-foreground">{c.caseNumber}</td>
                   <td className="px-5 py-3.5">

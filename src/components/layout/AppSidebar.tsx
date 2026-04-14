@@ -1,4 +1,4 @@
-import { LayoutDashboard, Inbox, Shield, Eye, Brain, Gavel, Settings, HelpCircle } from "lucide-react";
+import { LayoutDashboard, Inbox, Shield, Eye, Brain, Gavel, Settings } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import {
@@ -29,10 +29,9 @@ export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
   const location = useLocation();
-  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <Sidebar collapsible="icon" className="border-r border-border/50">
+    <Sidebar collapsible="icon" className="border-r border-border">
       <SidebarContent className="pt-4">
         <div className={`px-4 mb-6 ${collapsed ? "px-2" : ""}`}>
           <div className="flex items-center gap-2">
